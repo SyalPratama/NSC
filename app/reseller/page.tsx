@@ -21,7 +21,7 @@ import Footer from "@/components/Footer";
 // Mock Data Reseller
 const resellerData = {
   name: "Syal Pratama",
-  company: "PT Berkah Teknologi Terdepan",
+  company: "PT Contoh",
   tier: "Gold Partner",
   referralCode: "NSC-BTT-2026",
   stats: {
