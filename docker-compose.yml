@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  nsc-web:
+    container_name: nsc_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host  # <--- Wajib ada di sini agar saat proses build bisa internetan
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+
+networks:
+  nsc_network:
+    driver: bridge
