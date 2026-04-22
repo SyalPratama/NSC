@@ -13,8 +13,6 @@ export default function Footer() {
             <Link href="/career" className="transition-opacity hover:opacity-70">Karir</Link>
             <Link href="#" className="transition-opacity hover:opacity-70">Operator Satelit</Link>
             <Link href="/reseller" className="transition-opacity hover:opacity-70">Reseller Resmi</Link>
-            <Link href="#" className="transition-opacity hover:opacity-70">Privasi & Hukum</Link>
-            <Link href="#" className="transition-opacity hover:opacity-70">Preferensi Privasi</Link>
           </div>
 
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-4">

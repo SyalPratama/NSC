@@ -263,7 +263,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SECTION 8: UJI COBA 30 HARI (CENTERED FORM + FIXED BG KANAN) --- */}
+      {/* --- SECTION 8: MAP SATELIT --- */}
+      <section className="w-full bg-black py-24">
+
+        <div className="mx-auto max-w-7xl px-8 md:px-16 lg:px-24 flex flex-col items-center gap-10">
+          
+          {/* Title */}
+          <div className="text-center">
+            <h2 className="text-3xl md:text-5xl font-bold uppercase text-white mb-4">
+              Peta Distribusi Akastar
+            </h2>
+          </div>
+
+        </div>
+
+        {/* Full Width Image */}
+        <div className="w-full mt-10">
+          <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+            <Image
+              src="/maps-satelit.webp"
+              alt="Peta Satelit Akastar"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Text Below Image */}
+        <div className="mx-auto max-w-4xl px-8 md:px-16 lg:px-24 mt-12 text-center">
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-8">
+            Tersebar di seluruh wilayah Indonesia, kami hadir untuk memberikan solusi internet dengan kecepatan stabil tanpa gangguan hingga di pelosok negeri. Konektivitas yang kami berikan diharapkan dapat mendorong pertumbuhan ekonomi, memberikan kebebasan infrastruktur kepada seluruh masyarakat, sehingga setiap orang mendapat kesempatan yang sama untuk mendapat akses internet yang stabil.
+          </p>
+
+          <a
+            href="https://satellitemap.space/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block border-[1.5px] border-white px-8 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-black"
+          >
+            Selengkapnya
+          </a>
+        </div>
+
+      </section>
+
+      {/* --- SECTION 9: UJI COBA 30 HARI (CENTERED FORM + FIXED BG KANAN) --- */}
       <div className="relative w-full bg-black [clip-path:inset(0)]">
         
         <div className="fixed right-0 top-0 z-0 h-full w-full md:w-1/2 pointer-events-none">
