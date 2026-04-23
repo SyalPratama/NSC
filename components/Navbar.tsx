@@ -62,7 +62,7 @@ export default function Navbar() {
         <div className="flex items-center gap-10">
           <Link href="/" className="tracking-[0.2em] flex items-center">
             <img 
-              src="nsclogo.svg" 
+              src="/nsclogo.svg" 
               alt="NSC Logo" 
               className={`h-5 w-auto md:h-6 lg:h-7 transition-all duration-300 ${
                 !isScrolled ? "brightness-0 invert" : ""
@@ -141,6 +141,7 @@ export default function Navbar() {
           {/* Main Navigation Links */}
           {[
             { name: "Produk", href: "/product" },
+            { name: "Berita", href: "/berita" },
             { name: "Portal Customer", href: "/customer" },
             { name: "Portal Reseller", href: "/reseller" },
             { name: "Tentang Kami", href: "/tentang-kami" },
