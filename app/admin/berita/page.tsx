@@ -55,21 +55,25 @@ export default function NewsCMS() {
       <Navbar />
       
       <div className="relative z-10 container mx-auto px-6 pt-32 pb-24 max-w-7xl">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
-          <div>
-            <div className="flex items-center gap-2 text-cyan-400 mb-2">
-              <Globe size={16} />
-              <span className="text-[10px] font-black uppercase tracking-[0.4em]">Control Panel</span>
-            </div>
-            <h1 className="text-4xl font-black text-white tracking-tight">Kelola <span className="text-cyan-400">Berita.</span></h1>
-          </div>
-          <button 
-            onClick={() => { setEditingItem(null); setFormData({title:"", desc:"", cat:"Teknologi", img:"/particle7.webp"}); setIsModalOpen(true); }}
-            className="group flex items-center gap-3 bg-white text-[#1A2B47] hover:bg-cyan-400 px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:scale-95"
-          >
-            <Plus size={18} strokeWidth={3} /> Tambah Berita
-          </button>
-        </div>
+        {/* --- HEADER & ACTIONS (PERBAIKAN RESPONSIVE) --- */}
+<div className="flex flex-col items-center text-center md:flex-row md:justify-between md:items-end mb-12 gap-8">
+  <div className="flex flex-col items-center md:items-start">
+    <div className="flex items-center gap-2 text-cyan-400 mb-2">
+      <Globe size={14} className="animate-spin-slow" />
+      <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">Control Panel</span>
+    </div>
+    <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight">
+      Kelola <span className="text-cyan-400">Berita.</span>
+    </h1>
+  </div>
+  
+  <button 
+    onClick={() => { setEditingItem(null); setFormData({title:"", desc:"", cat:"Teknologi", img:"/particle7.webp"}); setIsModalOpen(true); }}
+    className="w-full md:w-auto flex items-center justify-center gap-3 bg-white text-[#1A2B47] hover:bg-cyan-400 px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:scale-95"
+  >
+    <Plus size={18} strokeWidth={3} /> Tambah Berita
+  </button>
+</div>
 
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="relative flex-grow">
