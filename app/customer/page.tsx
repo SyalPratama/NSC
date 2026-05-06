@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
 import { 
   CreditCard, 
@@ -26,7 +27,6 @@ const userData = {
     speed: "Up to 350 Mbps",
     status: "Active",
     expiryDate: "12 Mei 2026",
-    usage: "1.2 TB / Unlimited"
   }
 };
 
@@ -34,22 +34,20 @@ const customerServices = [
   { 
     icon: <CreditCard className="w-6 h-6" />, 
     title: "Billing & Pembayaran", 
-    desc: "Cek tagihan, riwayat transaksi, dan bayar aman." 
-  },
-  { 
-    icon: <Activity className="w-6 h-6" />, 
-    title: "Monitoring Koneksi", 
-    desc: "Pantau penggunaan data real-time di lokasi Anda." 
-  },
-  { 
-    icon: <LifeBuoy className="w-6 h-6" />, 
-    title: "Pusat Bantuan", 
-    desc: "Buka tiket keluhan atau hubungi teknisi 24/7." 
+    desc: "Cek tagihan, riwayat transaksi, dan bayar aman.",
+    href: "/customer/pembayaran" 
   },
   { 
     icon: <Settings className="w-6 h-6" />, 
     title: "Kelola Layanan", 
-    desc: "Upgrade paket dan konfigurasi perangkat Anda." 
+    desc: "Upgrade paket dan konfigurasi perangkat Anda.",
+    href: "/customer/layanan"
+  },
+  { 
+    icon: <LifeBuoy className="w-6 h-6" />, 
+    title: "Pusat Bantuan", 
+    desc: "Buka tiket keluhan atau hubungi teknisi 24/7.",
+    href: "/customer/bantuan"
   },
 ];
 
@@ -57,7 +55,7 @@ export default function CustomerPortal() {
   return (
     // Menggunakan warna request anda #273E66 sebagai latar belakang utama
     <main className="relative flex min-h-screen w-full flex-col bg-[#273E66] text-white selection:bg-blue-400/30 overflow-hidden font-sans">
-      <Navbar />
+      
       
       {/* Background Decor - Menggunakan partikel putih dengan opacity rendah */}
       <div className="fixed inset-0 z-0 opacity-10 pointer-events-none">
@@ -128,10 +126,6 @@ export default function CustomerPortal() {
                   <p className="text-xl font-bold text-white leading-none">{userData.activePlan.speed}</p>
                 </div>
                 <div className="space-y-1">
-                  <p className="text-blue-200/40 text-[10px] uppercase font-black tracking-widest">Monthly Usage</p>
-                  <p className="text-xl font-bold text-white leading-none">{userData.activePlan.usage}</p>
-                </div>
-                <div className="space-y-1">
                   <p className="text-blue-200/40 text-[10px] uppercase font-black tracking-widest">Expiry Date</p>
                   <div className="flex items-center gap-2">
                     <Calendar size={18} className="text-blue-300/60" />
@@ -157,22 +151,24 @@ export default function CustomerPortal() {
           {/* RIGHT: Quick Action Services */}
           <div className="lg:col-span-4 grid grid-cols-1 gap-4">
             {customerServices.map((service, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 * idx }}
-                className="group flex items-center gap-5 p-5 rounded-2xl border border-white/5 bg-white/[0.03] hover:bg-white hover:shadow-xl hover:shadow-black/20 transition-all cursor-pointer active:scale-[0.98]"
-              >
-                <div className="p-3 rounded-xl bg-white/5 text-blue-200 group-hover:bg-[#273E66] group-hover:text-white transition-all">
-                  {service.icon}
-                </div>
-                <div className="flex-grow">
-                  <h3 className="text-sm font-bold text-white group-hover:text-[#273E66] transition-colors">{service.title}</h3>
-                  <p className="text-[11px] text-blue-100/40 group-hover:text-[#273E66]/60 transition-colors leading-tight mt-1.5 font-medium">{service.desc}</p>
-                </div>
-                <ChevronRight size={16} className="text-white/20 group-hover:text-[#273E66] transition-colors flex-shrink-0" />
-              </motion.div>
+              <Link href={service.href || "#"} key={idx} className="block">
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 * idx }}
+                  className="group flex items-center gap-5 p-5 rounded-2xl border border-white/5 bg-white/[0.03] hover:bg-white hover:shadow-xl hover:shadow-black/20 transition-all cursor-pointer active:scale-[0.98]"
+                >
+                  <div className="p-3 rounded-xl bg-white/5 text-blue-200 group-hover:bg-[#273E66] group-hover:text-white transition-all">
+                    {service.icon}
+                  </div>
+                  <div className="flex-grow">
+                    <h3 className="text-sm font-bold text-white group-hover:text-[#273E66] transition-colors">{service.title}</h3>
+                    <p className="text-[11px] text-blue-100/40 group-hover:text-[#273E66]/60 transition-colors leading-tight mt-1.5 font-medium">{service.desc}</p>
+                  </div>
+                  <ChevronRight size={16} className="text-white/20 group-hover:text-[#273E66] transition-colors flex-shrink-0" />
+                </motion.div>
+              </Link>
             ))}
           </div>
 
