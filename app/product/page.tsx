@@ -158,7 +158,7 @@ export default function ProductPage() {
                     </div>
 
                     <a 
-                    href="/checkout" 
+                    href="/product/checkout" 
                     className="w-full flex-shrink-0 rounded-xl bg-[#273E66] py-4 text-[10px] font-black uppercase tracking-widest text-white shadow-lg flex items-center justify-center gap-2 hover:bg-[#1a2b47] transition-all active:scale-95 cursor-pointer"
                     >
                     <ShoppingCart size={14} /> Pesan Sekarang
