@@ -33,7 +33,8 @@ export default function Home() {
 
         <div className="relative z-10 mt-[50px] flex w-full max-w-[1500px] flex-col gap-6 px-6 md:flex-row">
           {/* Card 1: Residensial */}
-          <div className="flex flex-1 flex-col justify-between rounded-xl border border-gray-500/50 bg-[#111111]/20 p-8 backdrop-blur-md">
+          {/* Perubahan : takeout dulu blm ada product */}
+          {/* <div className="flex flex-1 flex-col justify-between rounded-xl border border-gray-500/50 bg-[#111111]/20 p-8 backdrop-blur-md">
             <div>
               <h2 className="mb-2 text-2xl font-bold text-white uppercase">Residensial</h2>
               <p className="mb-4 text-sm text-gray-300">Dengan Akastar di rumah Anda, nikmati internet super cepat tanpa batasan. Streaming video, bermain game, dan bekerja dari rumah akan menjadi lebih lancar daripada sebelumnya. Jadikan rumah Anda pusat konektivitas yang tak tertandingi.</p>
@@ -47,7 +48,7 @@ export default function Home() {
                 Pelajari Selengkapnya
               </button>
             </div>
-          </div>
+          </div> */}
 
           {/* Card 2: Jelajah */}
           <div className="flex flex-1 flex-col justify-between rounded-xl border border-gray-500/50 bg-[#111111]/20 p-8 backdrop-blur-md">
