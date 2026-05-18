@@ -14,7 +14,7 @@ const contactInfo = [
 
 export default function ContactPage() {
   return (
-    <main className="relative flex min-h-screen w-full flex-col bg-[#273E66] text-white selection:bg-blue-400/30 font-sans overflow-x-hidden">
+    <main className="relative flex min-h-screen w-full flex-col bg-black text-gray-200 selection:bg-orange-500/30 font-sans overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section */}
@@ -26,13 +26,13 @@ export default function ContactPage() {
           priority
           className="object-cover brightness-[0.3]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#273E66] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
         
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
           <motion.h4 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-4 text-[10px] font-black uppercase tracking-[0.5em] text-blue-300 opacity-80"
+            className="mb-4 text-[10px] font-black uppercase tracking-[0.5em] text-orange-500 opacity-80"
           >
             Get In Touch
           </motion.h4>
@@ -40,15 +40,15 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mb-6 text-4xl font-extrabold uppercase tracking-tighter md:text-6xl"
+            className="mb-6 text-4xl font-extrabold uppercase tracking-tighter md:text-6xl text-white"
           >
-            Hubungi <span className="text-blue-300">Kami</span>
+            Hubungi <span className="text-orange-500">Kami</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="max-w-2xl text-blue-100/60 md:text-lg font-medium"
+            className="max-w-2xl text-gray-400 md:text-lg font-medium"
           >
             Siap untuk transformasi digital? Tim ahli kami siap membantu solusi konektivitas satelit untuk bisnis Anda.
           </motion.p>
@@ -62,31 +62,31 @@ export default function ContactPage() {
           {/* Left Side: Contact Info */}
           <div className="lg:col-span-4 space-y-8">
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold uppercase tracking-tight">Informasi Kontak</h2>
-              <p className="text-blue-100/50 text-sm leading-relaxed font-medium">
+              <h2 className="text-2xl font-bold uppercase tracking-tight text-white">Informasi Kontak</h2>
+              <p className="text-gray-400 text-sm leading-relaxed font-medium">
                 Punya pertanyaan spesifik tentang layanan Starlink atau integrasi infrastruktur? Jangan ragu untuk menghubungi kami melalui saluran berikut.
               </p>
             </div>
 
             <div className="space-y-4">
               {contactInfo.map((info, idx) => (
-                <div key={idx} className="flex items-start gap-4 p-6 rounded-2xl border border-white/10 bg-white/[0.03] transition-all hover:bg-white/[0.08]">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-400/10 text-blue-300">
+                <div key={idx} className="group flex items-start gap-4 p-6 rounded-2xl border border-white/5 bg-[#111111] transition-all hover:bg-[#1a1a1a] hover:border-orange-500/50 hover:shadow-[0_0_15px_rgba(249,115,22,0.1)]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-500 group-hover:scale-110 transition-transform">
                     {info.icon}
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black uppercase tracking-widest text-blue-200/50 mb-1">{info.title}</h4>
-                    <p className="text-lg font-bold text-white leading-tight mb-1">{info.detail}</p>
-                    <p className="text-[11px] text-blue-100/40 font-medium">{info.desc}</p>
+                    <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-1 group-hover:text-orange-500/80 transition-colors">{info.title}</h4>
+                    <p className="text-lg font-bold text-white leading-tight mb-1 group-hover:text-orange-500 transition-colors">{info.detail}</p>
+                    <p className="text-[11px] text-gray-500 font-medium">{info.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Trust Badge */}
-            <div className="p-6 rounded-2xl border border-blue-400/10 bg-blue-400/5 flex items-center gap-4">
-              <ShieldCheck className="text-blue-300" size={32} />
-              <p className="text-[11px] text-blue-100/40 leading-tight font-medium">
+            <div className="p-6 rounded-2xl border border-orange-500/20 bg-orange-500/5 flex items-center gap-4">
+              <ShieldCheck className="text-orange-500 flex-shrink-0" size={32} />
+              <p className="text-[11px] text-gray-400 leading-tight font-medium">
                 Data Anda aman bersama kami. Kami mematuhi standar privasi data global untuk memastikan kerahasiaan informasi Anda.
               </p>
             </div>
@@ -97,112 +97,112 @@ export default function ContactPage() {
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="relative rounded-[32px] border border-white/10 bg-[#1E3050] p-8 md:p-12 shadow-2xl overflow-hidden"
+              className="relative rounded-[32px] border border-white/10 bg-[#111111] p-8 md:p-12 shadow-2xl overflow-hidden"
             >
               {/* Decorative background glow */}
-              <div className="absolute top-0 right-0 -mr-20 -mt-20 h-64 w-64 bg-white/5 blur-[100px] rounded-full" />
+              <div className="absolute top-0 right-0 -mr-20 -mt-20 h-64 w-64 bg-orange-500/10 blur-[100px] rounded-full pointer-events-none" />
 
               <form className="relative z-10 space-y-6" onSubmit={(e) => e.preventDefault()}>
                 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-blue-200/40 ml-1">Nama Depan*</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Nama Depan*</label>
                     <input 
                       type="text" 
                       placeholder="Masukkan Nama Depan..."
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] py-4 px-5 text-sm text-white outline-none transition-all focus:border-blue-400/50 focus:bg-white/[0.1] placeholder:text-blue-100/20"
+                      className="w-full rounded-xl border border-white/5 bg-white/[0.03] py-4 px-5 text-sm text-white outline-none transition-all focus:border-orange-500 focus:bg-white/[0.08] placeholder:text-gray-600"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-blue-200/40 ml-1">Nama Belakang*</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Nama Belakang*</label>
                     <input 
                       type="text" 
                       placeholder="Masukkan Nama Belakang..."
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] py-4 px-5 text-sm text-white outline-none transition-all focus:border-blue-400/50 focus:bg-white/[0.1] placeholder:text-blue-100/20"
+                      className="w-full rounded-xl border border-white/5 bg-white/[0.03] py-4 px-5 text-sm text-white outline-none transition-all focus:border-orange-500 focus:bg-white/[0.08] placeholder:text-gray-600"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-blue-200/40 ml-1">Email*</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Email*</label>
                     <div className="relative">
-                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-300/40" size={16} />
+                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                       <input 
                         type="email" 
                         placeholder="Masukkan Email..."
-                        className="w-full rounded-xl border border-white/10 bg-white/[0.05] py-4 pl-12 pr-5 text-sm text-white outline-none transition-all focus:border-blue-400/50 focus:bg-white/[0.1] placeholder:text-blue-100/20"
+                        className="w-full rounded-xl border border-white/5 bg-white/[0.03] py-4 pl-12 pr-5 text-sm text-white outline-none transition-all focus:border-orange-500 focus:bg-white/[0.08] placeholder:text-gray-600"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-blue-200/40 ml-1">Nomor Handphone*</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Nomor Handphone*</label>
                     <div className="relative">
-                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-300/40" size={16} />
+                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                       <input 
                         type="text" 
                         placeholder="+62..."
-                        className="w-full rounded-xl border border-white/10 bg-white/[0.05] py-4 pl-12 pr-5 text-sm text-white outline-none transition-all focus:border-blue-400/50 focus:bg-white/[0.1] placeholder:text-blue-100/20"
+                        className="w-full rounded-xl border border-white/5 bg-white/[0.03] py-4 pl-12 pr-5 text-sm text-white outline-none transition-all focus:border-orange-500 focus:bg-white/[0.08] placeholder:text-gray-600"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-blue-200/40 ml-1">Alamat Lengkap*</label>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Alamat Lengkap*</label>
                   <textarea 
                     rows={3}
                     placeholder="Masukkan Alamat Lengkap..."
-                    className="w-full rounded-xl border border-white/10 bg-white/[0.05] py-4 px-5 text-sm text-white outline-none transition-all focus:border-blue-400/50 focus:bg-white/[0.1] placeholder:text-blue-100/20 resize-none"
+                    className="w-full rounded-xl border border-white/5 bg-white/[0.03] py-4 px-5 text-sm text-white outline-none transition-all focus:border-orange-500 focus:bg-white/[0.08] placeholder:text-gray-600 resize-none"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-blue-200/40 ml-1">Provinsi</label>
-                    <select className="w-full appearance-none rounded-xl border border-white/10 bg-white/[0.05] py-4 px-5 text-sm text-white outline-none transition-all focus:border-blue-400/50 focus:bg-white/[0.1] cursor-pointer">
-                      <option className="bg-[#1E3050]">Pilih Provinsi...</option>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Provinsi</label>
+                    <select className="w-full appearance-none rounded-xl border border-white/5 bg-white/[0.03] py-4 px-5 text-sm text-gray-400 outline-none transition-all focus:border-orange-500 focus:text-white focus:bg-white/[0.08] cursor-pointer">
+                      <option className="bg-[#111111]">Pilih Provinsi...</option>
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-blue-200/40 ml-1">Kabupaten/Kota</label>
-                    <select className="w-full appearance-none rounded-xl border border-white/10 bg-white/[0.05] py-4 px-5 text-sm text-white outline-none transition-all focus:border-blue-400/50 focus:bg-white/[0.1] cursor-pointer">
-                      <option className="bg-[#1E3050]">Pilih Kabupaten/Kota...</option>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Kabupaten/Kota</label>
+                    <select className="w-full appearance-none rounded-xl border border-white/5 bg-white/[0.03] py-4 px-5 text-sm text-gray-400 outline-none transition-all focus:border-orange-500 focus:text-white focus:bg-white/[0.08] cursor-pointer">
+                      <option className="bg-[#111111]">Pilih Kabupaten/Kota...</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-blue-200/40 ml-1">Kecamatan</label>
-                    <select className="w-full appearance-none rounded-xl border border-white/10 bg-white/[0.05] py-4 px-5 text-sm text-white outline-none transition-all focus:border-blue-400/50 focus:bg-white/[0.1] cursor-pointer">
-                      <option className="bg-[#1E3050]">Kecamatan...</option>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Kecamatan</label>
+                    <select className="w-full appearance-none rounded-xl border border-white/5 bg-white/[0.03] py-4 px-5 text-sm text-gray-400 outline-none transition-all focus:border-orange-500 focus:text-white focus:bg-white/[0.08] cursor-pointer">
+                      <option className="bg-[#111111]">Kecamatan...</option>
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-blue-200/40 ml-1">Kelurahan/Desa</label>
-                    <select className="w-full appearance-none rounded-xl border border-white/10 bg-white/[0.05] py-4 px-5 text-sm text-white outline-none transition-all focus:border-blue-400/50 focus:bg-white/[0.1] cursor-pointer">
-                      <option className="bg-[#1E3050]">Kelurahan...</option>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Kelurahan/Desa</label>
+                    <select className="w-full appearance-none rounded-xl border border-white/5 bg-white/[0.03] py-4 px-5 text-sm text-gray-400 outline-none transition-all focus:border-orange-500 focus:text-white focus:bg-white/[0.08] cursor-pointer">
+                      <option className="bg-[#111111]">Kelurahan...</option>
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-blue-200/40 ml-1">Kode Pos*</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Kode Pos*</label>
                     <input 
                       type="text" 
                       placeholder="Kode Pos..."
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] py-4 px-5 text-sm text-white outline-none transition-all focus:border-blue-400/50 focus:bg-white/[0.1] placeholder:text-blue-100/20"
+                      className="w-full rounded-xl border border-white/5 bg-white/[0.03] py-4 px-5 text-sm text-white outline-none transition-all focus:border-orange-500 focus:bg-white/[0.08] placeholder:text-gray-600"
                     />
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3 py-2">
-                  <input type="checkbox" id="agree" className="mt-1 h-4 w-4 rounded border-blue-400/20 bg-transparent text-blue-500 focus:ring-blue-500/50" />
-                  <label htmlFor="agree" className="text-xs text-blue-100/40 leading-normal font-medium">
+                  <input type="checkbox" id="agree" className="mt-1 h-4 w-4 rounded border-white/20 bg-white/5 text-orange-500 focus:ring-orange-500/50 cursor-pointer" />
+                  <label htmlFor="agree" className="text-xs text-gray-400 leading-normal font-medium cursor-pointer select-none">
                     Dengan menyetujui artinya Anda bersedia untuk mendapatkan informasi terbaru tentang NSC dan kebijakan privasi kami.
                   </label>
                 </div>
 
-                <button className="group relative w-full overflow-hidden rounded-xl bg-white py-4 text-[11px] font-black uppercase tracking-[0.2em] text-[#273E66] transition-all hover:bg-blue-50 active:scale-[0.98] shadow-xl">
+                <button className="group relative w-full overflow-hidden rounded-xl bg-orange-500 py-4 text-[11px] font-black uppercase tracking-[0.2em] text-black transition-all hover:bg-orange-400 active:scale-[0.98] shadow-[0_0_15px_rgba(249,115,22,0.3)] mt-2">
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     Kirim Pesan Sekarang <Send size={14} className="group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -216,10 +216,11 @@ export default function ContactPage() {
 
       {/* Global Presence */}
       <section className="px-6 py-24 md:px-12 lg:px-24">
-        <div className="w-full rounded-[40px] border border-white/10 bg-white/[0.03] p-12 text-center backdrop-blur-md">
-          <Globe className="mx-auto mb-6 text-blue-300 opacity-50" size={48} />
-          <h2 className="mb-4 text-2xl font-bold uppercase tracking-tight text-white">Konektivitas Tanpa Batas</h2>
-          <p className="mx-auto max-w-2xl text-blue-100/50 text-sm font-medium leading-relaxed">
+        <div className="w-full rounded-[40px] border border-white/10 bg-[#111111] p-12 text-center backdrop-blur-md shadow-2xl relative overflow-hidden group">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(249,115,22,0.05),transparent)] pointer-events-none transition-opacity duration-700 opacity-50 group-hover:opacity-100" />
+          <Globe className="mx-auto mb-6 text-orange-500 opacity-80 group-hover:scale-110 transition-transform duration-500" size={48} />
+          <h2 className="mb-4 text-2xl font-bold uppercase tracking-tight text-white relative z-10">Konektivitas Tanpa Batas</h2>
+          <p className="mx-auto max-w-2xl text-gray-400 text-sm font-medium leading-relaxed relative z-10">
             NSC menghadirkan solusi satelit Starlink ke seluruh wilayah Indonesia. Di mana pun bisnis Anda berada, kami punya cara untuk menghubungkannya.
           </p>
         </div>

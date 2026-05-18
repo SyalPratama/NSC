@@ -62,7 +62,7 @@ export default function ProductPage() {
   };
 
   return (
-    <main className="relative flex min-h-screen w-full flex-col bg-[#273E66] text-white selection:bg-blue-400/30 overflow-x-hidden font-sans">
+    <main className="relative flex min-h-screen w-full flex-col bg-black text-gray-200 selection:bg-orange-500/30 overflow-x-hidden font-sans">
       <Navbar />
 
       <div className="fixed inset-0 z-0 opacity-10 pointer-events-none">
@@ -70,11 +70,11 @@ export default function ProductPage() {
       </div>
 
       <section className="relative z-10 flex flex-col items-center justify-center px-6 pt-24 pb-8 text-center md:pt-48">
-        <h4 className="mb-4 text-[9px] font-black uppercase tracking-[0.5em] text-blue-300 opacity-80">
+        <h4 className="mb-4 text-[9px] font-black uppercase tracking-[0.5em] text-orange-500 opacity-80">
           Tingkatkan koneksi dengan jangkauan dari orbit, <br />kami menjaga anda tetap terhubung.
         </h4>
-        <h1 className="mb-4 text-3xl font-extrabold uppercase tracking-tighter md:text-6xl">
-          Akastar <span className="text-blue-300">Series</span>
+        <h1 className="mb-4 text-3xl font-extrabold uppercase tracking-tighter md:text-6xl text-white">
+          Akastar <span className="text-orange-500">Series</span>
         </h1>
       </section>
 
@@ -90,7 +90,9 @@ export default function ProductPage() {
                 key={product.id} 
                 onClick={() => toggleCard(product.id)}
                 className={`group flex flex-col lg:flex-row items-stretch overflow-hidden rounded-[24px] md:rounded-[32px] border transition-all duration-500 w-full lg:w-auto cursor-pointer shadow-2xl
-                  ${isOpen ? 'bg-white border-white' : 'bg-[#1E3050] border-white/10 lg:hover:bg-white lg:hover:border-white'}
+                  ${isOpen 
+                    ? 'bg-[#111111] border-orange-500 shadow-[0_0_20px_rgba(249,115,22,0.15)]' 
+                    : 'bg-[#0a0a0a] border-white/10 lg:hover:bg-[#111111] lg:hover:border-orange-500/50'}
                 `}
               >
                 
@@ -101,13 +103,13 @@ export default function ProductPage() {
                   `}>
                     <div className={`rounded-xl lg:rounded-2xl p-2 lg:p-5 border transition-all 
                       ${isOpen 
-                        ? 'bg-[#273E66]/10 text-[#273E66] border-[#273E66]/10' 
-                        : 'bg-white/5 text-blue-300 border-white/5 group-hover:bg-[#273E66]/10 group-hover:text-[#273E66]'}
+                        ? 'bg-orange-500/10 text-orange-500 border-orange-500/20' 
+                        : 'bg-white/5 text-gray-400 border-white/5 group-hover:bg-orange-500/10 group-hover:text-orange-500'}
                     `}>
                       {product.icon}
                     </div>
                     <h3 className={`text-sm lg:text-base xl:text-lg font-black uppercase tracking-[0.1em] transition-colors leading-tight lg:mt-6
-                      ${isOpen ? 'text-[#273E66]' : 'text-white group-hover:text-[#273E66]'}
+                      ${isOpen ? 'text-orange-500' : 'text-gray-300 group-hover:text-orange-500'}
                     `}>
                       {product.name}
                     </h3>
@@ -115,15 +117,15 @@ export default function ProductPage() {
                   
                   <div className={`flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-500
                     ${isOpen 
-                      ? 'border-[#273E66]/20 text-[#273E66]' 
-                      : 'border-white/10 text-white/20 group-hover:border-[#273E66]/20 group-hover:text-[#273E66]'}
+                      ? 'border-orange-500/30 text-orange-500' 
+                      : 'border-white/10 text-white/30 group-hover:border-orange-500/30 group-hover:text-orange-500'}
                   `}>
                     <ChevronDown size={18} className={`lg:hidden transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
                     <ChevronRight size={18} className={`hidden lg:block transition-transform duration-500 ${isOpen ? 'rotate-180' : 'group-hover:rotate-180'}`} />
                   </div>
                 </div>
 
-                {/* --- DETAIL PANEL (DIPERBAIKI) --- */}
+                {/* --- DETAIL PANEL --- */}
                 <div 
                   className={`w-full lg:h-[450px] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col relative z-20 overflow-hidden
                     ${isOpen 
@@ -131,24 +133,24 @@ export default function ProductPage() {
                       : 'max-h-0 opacity-0 lg:w-0 lg:max-h-[450px] lg:group-hover:w-[350px] xl:group-hover:w-[450px] lg:group-hover:opacity-100'}
                   `}
                 >
-                  <div className="flex flex-col py-6 lg:py-10 border-t lg:border-t-0 lg:border-l border-[#273E66]/10 px-8 h-full">
+                  <div className="flex flex-col py-6 lg:py-10 border-t lg:border-t-0 lg:border-l border-white/10 px-8 h-full">
                     <div className="mb-4 flex-shrink-0">
-                      <div className="flex items-baseline gap-1 text-[#273E66]">
+                      <div className="flex items-baseline gap-1 text-white">
                         <span className="text-2xl font-black tracking-tighter tabular-nums">Rp {product.price}</span>
                       </div>
                     </div>
 
                     {/* Container Teks yang bisa scroll jika kepanjangan */}
                     <div className="overflow-y-auto pr-2 custom-scrollbar flex-1 mb-6">
-                      <p className="text-[11px] lg:text-[13px] leading-relaxed text-[#273E66]/70 font-medium mb-6">
+                      <p className="text-[11px] lg:text-[13px] leading-relaxed text-gray-400 font-medium mb-6">
                         {product.description}
                       </p>
 
                       <div className="space-y-4">
-                        <p className="text-[9px] font-black uppercase tracking-widest text-blue-600 tracking-[0.2em]">Core Features</p>
+                        <p className="text-[9px] font-black uppercase text-orange-500 tracking-[0.2em]">Core Features</p>
                         {product.features.map((f, i) => (
-                          <div key={i} className="flex items-start gap-3 text-[10px] lg:text-[11px] font-bold text-[#273E66]/80">
-                            <div className="p-1.5 rounded-lg bg-[#273E66]/5 text-[#273E66] mt-0.5 flex-shrink-0">
+                          <div key={i} className="flex items-start gap-3 text-[10px] lg:text-[11px] font-bold text-gray-300">
+                            <div className="p-1.5 rounded-lg bg-orange-500/10 text-orange-500 mt-0.5 flex-shrink-0 border border-orange-500/10">
                               {f.icon}
                             </div>
                             <span className="leading-snug">{f.text}</span>
@@ -159,7 +161,7 @@ export default function ProductPage() {
 
                     <a 
                     href="/product/checkout" 
-                    className="w-full flex-shrink-0 rounded-xl bg-[#273E66] py-4 text-[10px] font-black uppercase tracking-widest text-white shadow-lg flex items-center justify-center gap-2 hover:bg-[#1a2b47] transition-all active:scale-95 cursor-pointer"
+                    className="w-full flex-shrink-0 rounded-xl bg-orange-500 py-4 text-[10px] font-black uppercase tracking-widest text-black shadow-[0_0_15px_rgba(249,115,22,0.3)] flex items-center justify-center gap-2 hover:bg-orange-400 transition-all active:scale-95 cursor-pointer"
                     >
                     <ShoppingCart size={14} /> Pesan Sekarang
                     </a>
@@ -178,7 +180,7 @@ export default function ProductPage() {
       <style jsx global>{`
         .custom-scrollbar::-webkit-scrollbar { width: 3px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #273e6640; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(249, 115, 22, 0.3); border-radius: 10px; }
       `}</style>
     </main>
   );

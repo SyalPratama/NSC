@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react"; // Tambahkan useState
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { UserPlus, Mail, Lock, ShieldCheck, ChevronLeft, EyeOff, User, Briefcase, Users } from "lucide-react";
@@ -18,13 +18,17 @@ export default function RegisterPage() {
   const [accountType, setAccountType] = useState("customer");
 
   return (
-    <main className="relative flex min-h-screen w-full flex-col items-center justify-center bg-[#030303] text-slate-200 selection:bg-blue-500/30 overflow-hidden font-sans">
+    <main className="relative flex min-h-screen w-full flex-col items-center justify-center bg-black text-gray-200 selection:bg-orange-500/30 overflow-hidden font-sans">
       
       {/* --- BACKGROUND LAYER --- */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1),rgba(3,3,3,1))]" />
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-600/20 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        {/* Gradasi pure black / dark gray */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,24,27,1),rgba(0,0,0,1))]" />
+        
+        {/* Animated Mesh Gradient dengan nuansa Orange/Amber */}
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-orange-600/20 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-amber-600/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
       </div>
 
@@ -36,9 +40,9 @@ export default function RegisterPage() {
       >
         <Link 
           href="/login" 
-          className="group flex items-center gap-2.5 text-xs font-medium tracking-wide text-slate-400 transition-all hover:text-white"
+          className="group flex items-center gap-2.5 text-xs font-medium tracking-wide text-gray-400 transition-all hover:text-orange-400"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/5 bg-white/5 transition-colors group-hover:bg-white/10 group-hover:border-white/20">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/5 bg-white/5 transition-colors group-hover:bg-orange-500/10 group-hover:border-orange-500/30 group-hover:text-orange-400">
             <ChevronLeft size={16} className="transition-transform group-hover:-translate-x-1" />
           </div>
           Back to login
@@ -55,34 +59,35 @@ export default function RegisterPage() {
           {/* Header */}
           <div className="mb-10 text-center">
             <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-6 backdrop-blur-sm shadow-xl">
-               <img src="nsclogo.svg" alt="Logo" className="h-7 w-7 brightness-0 invert" />
+               <img src="nsclogo.svg" alt="Logo" className="h-10 w-10 brightness-0 invert" />
             </div>
             <h1 className="text-3xl font-bold tracking-tight text-white mb-2">
               Create an account
             </h1>
-            <p className="text-slate-400 text-sm font-medium">
+            <p className="text-gray-400 text-sm font-bold">
               Join us to start managing your portal today
             </p>
           </div>
 
           {/* Register Card */}
           <div className="relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 to-blue-500/20 rounded-[24px] blur-xl opacity-50" />
+            {/* Soft Glow Behind Card dengan aksen Orange */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-[24px] blur-xl opacity-50" />
             
-            <div className="relative rounded-[24px] border border-white/10 bg-black/40 p-8 backdrop-blur-2xl">
+            <div className="relative rounded-[24px] border border-white/10 bg-black/60 p-8 backdrop-blur-2xl">
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                 
                 {/* Account Type Selector */}
                 <div className="space-y-2">
-                  <label className="text-[13px] font-medium text-slate-300 ml-1">I am a...</label>
+                  <label className="text-[13px] font-bold text-gray-300 ml-1">I am a...</label>
                   <div className="grid grid-cols-2 gap-3 p-1 rounded-xl bg-white/[0.03] border border-white/5">
                     <button
                       type="button"
                       onClick={() => setAccountType("customer")}
-                      className={`flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-semibold transition-all ${
+                      className={`flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-bold transition-all ${
                         accountType === "customer" 
-                        ? "bg-white text-black shadow-lg" 
-                        : "text-slate-400 hover:text-white hover:bg-white/5"
+                        ? "bg-orange-500 text-black shadow-[0_0_10px_rgba(249,115,22,0.3)]" 
+                        : "text-gray-400 hover:text-white hover:bg-white/5"
                       }`}
                     >
                       <Users size={14} />
@@ -91,10 +96,10 @@ export default function RegisterPage() {
                     <button
                       type="button"
                       onClick={() => setAccountType("reseller")}
-                      className={`flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-semibold transition-all ${
+                      className={`flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-bold transition-all ${
                         accountType === "reseller" 
-                        ? "bg-indigo-600 text-white shadow-lg" 
-                        : "text-slate-400 hover:text-white hover:bg-white/5"
+                        ? "bg-orange-500 text-black shadow-[0_0_10px_rgba(249,115,22,0.3)]" 
+                        : "text-gray-400 hover:text-white hover:bg-white/5"
                       }`}
                     >
                       <Briefcase size={14} />
@@ -105,49 +110,49 @@ export default function RegisterPage() {
 
                 {/* Full Name Field */}
                 <div className="space-y-2">
-                  <label className="text-[13px] font-medium text-slate-300 ml-1">Full Name</label>
+                  <label className="text-[13px] font-bold text-gray-300 ml-1">Full Name</label>
                   <div className="relative">
-                    <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                     <input 
                       type="text" 
                       placeholder="John Doe"
-                      className="w-full rounded-xl border border-white/5 bg-white/[0.05] py-3.5 pl-12 pr-4 text-sm transition-all focus:border-indigo-500/50 focus:bg-white/[0.08] outline-none placeholder:text-slate-600"
+                      className="w-full rounded-xl border border-white/5 bg-white/[0.05] py-3.5 pl-12 pr-4 text-sm transition-all focus:border-orange-500/50 focus:bg-white/[0.08] outline-none placeholder:text-gray-600"
                     />
                   </div>
                 </div>
 
                 {/* Email Field */}
                 <div className="space-y-2">
-                  <label className="text-[13px] font-medium text-slate-300 ml-1">Email address</label>
+                  <label className="text-[13px] font-bold text-gray-300 ml-1">Email address</label>
                   <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                     <input 
                       type="email" 
                       placeholder="name@company.com"
-                      className="w-full rounded-xl border border-white/5 bg-white/[0.05] py-3.5 pl-12 pr-4 text-sm transition-all focus:border-indigo-500/50 focus:bg-white/[0.08] outline-none placeholder:text-slate-600"
+                      className="w-full rounded-xl border border-white/5 bg-white/[0.05] py-3.5 pl-12 pr-4 text-sm transition-all focus:border-orange-500/50 focus:bg-white/[0.08] outline-none placeholder:text-gray-600"
                     />
                   </div>
                 </div>
 
                 {/* Password Field */}
                 <div className="space-y-2">
-                  <label className="text-[13px] font-medium text-slate-300 ml-1">Password</label>
+                  <label className="text-[13px] font-bold text-gray-300 ml-1">Password</label>
                   <div className="relative">
-                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
+                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                     <input 
                       type="password" 
                       placeholder="••••••••"
-                      className="w-full rounded-xl border border-white/5 bg-white/[0.05] py-3.5 pl-12 pr-12 text-sm transition-all focus:border-indigo-500/50 focus:bg-white/[0.08] outline-none placeholder:text-slate-600"
+                      className="w-full rounded-xl border border-white/5 bg-white/[0.05] py-3.5 pl-12 pr-12 text-sm transition-all focus:border-orange-500/50 focus:bg-white/[0.08] outline-none placeholder:text-gray-600"
                     />
-                    <button type="button" className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300">
+                    <button type="button" className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300">
                         <EyeOff size={16} />
                     </button>
                   </div>
-                  <p className="text-[11px] text-slate-500 ml-1">Must be at least 8 characters long.</p>
+                  <p className="text-[11px] font-bold text-gray-500 ml-1">Must be at least 8 characters long.</p>
                 </div>
 
                 {/* Submit Button */}
-                <button type="submit" className="relative mt-4 w-full group overflow-hidden rounded-xl bg-white px-4 py-3.5 text-sm font-semibold text-black transition-all hover:bg-slate-100 active:scale-[0.98]">
+                <button type="submit" className="relative mt-4 w-full group overflow-hidden rounded-xl bg-orange-500 px-4 py-3.5 text-sm font-bold text-black transition-all hover:bg-orange-400 active:scale-[0.98] shadow-[0_0_15px_rgba(249,115,22,0.3)]">
                   <div className="flex items-center justify-center gap-2">
                     Create {accountType === "reseller" ? "Reseller" : ""} Account
                     <UserPlus size={16} className="transition-transform group-hover:translate-x-0.5" />
@@ -156,20 +161,20 @@ export default function RegisterPage() {
 
                 <div className="relative flex items-center py-2">
                   <div className="flex-grow border-t border-white/5"></div>
-                  <span className="mx-4 text-[11px] font-medium uppercase tracking-widest text-slate-500">Or sign up with</span>
+                  <span className="mx-4 text-[11px] font-bold uppercase tracking-widest text-gray-500">Or sign up with</span>
                   <div className="flex-grow border-t border-white/5"></div>
                 </div>
 
                 {/* Google Button */}
-                <button type="button" className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] py-3.5 text-sm font-medium text-white transition-all hover:bg-white/[0.08] hover:border-white/20">
+                <button type="button" className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] py-3.5 text-sm font-bold text-white transition-all hover:bg-white/[0.08] hover:border-white/20">
                   <GoogleIcon /> Google
                 </button>
               </form>
 
               <div className="mt-8 text-center">
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-gray-400">
                   Already have an account? {" "}
-                  <Link href="/login" className="text-white hover:underline underline-offset-4 font-medium transition-colors">
+                  <Link href="/login" className="text-orange-500 hover:text-orange-400 hover:underline underline-offset-4 font-bold transition-colors">
                     Sign in
                   </Link>
                 </p>
@@ -185,8 +190,8 @@ export default function RegisterPage() {
             className="mt-12 flex flex-col items-center gap-6"
           >
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md">
-              <ShieldCheck size={14} className="text-emerald-500" />
-              <span className="text-[11px] font-medium text-slate-400 tracking-tight">Your data is protected</span>
+              <ShieldCheck size={14} className="text-orange-500" />
+              <span className="text-[11px] font-bold text-gray-400 tracking-tight">Your data is protected</span>
             </div>
           </motion.div>
         </motion.div>

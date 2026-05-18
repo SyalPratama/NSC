@@ -46,10 +46,11 @@ export default function NewsCMS() {
   };
 
   return (
-    <main className="relative min-h-screen bg-[#1A2B47] text-slate-100 font-sans">
+    <main className="relative min-h-screen bg-black text-gray-200 font-sans selection:bg-orange-500/30">
+      {/* Background Glow */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-[-5%] left-[-10%] w-[600px] h-[600px] bg-blue-500/15 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[10%] right-[-5%] w-[500px] h-[500px] bg-cyan-400/10 blur-[100px] rounded-full" />
+        <div className="absolute top-[-5%] left-[-10%] w-[600px] h-[600px] bg-orange-600/15 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[500px] h-[500px] bg-amber-500/10 blur-[100px] rounded-full" />
       </div>
 
       <Navbar />
@@ -58,51 +59,53 @@ export default function NewsCMS() {
         {/* --- HEADER & ACTIONS --- */}
         <div className="flex flex-col items-center text-center md:flex-row md:justify-between md:items-end mb-12 gap-8">
           <div className="flex flex-col items-center md:items-start">
-            <div className="flex items-center gap-2 text-cyan-400 mb-2">
+            <div className="flex items-center gap-2 text-orange-500 mb-2">
               <Globe size={14} className="animate-spin-slow" />
               <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">Control Panel</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight">
-              Kelola <span className="text-cyan-400">Berita.</span>
+              Kelola <span className="text-orange-500">Berita.</span>
             </h1>
           </div>
           
           <button 
             onClick={() => { setEditingItem(null); setFormData({title:"", desc:"", cat:"Teknologi", img:"/particle7.webp"}); setIsModalOpen(true); }}
-            className="w-full md:w-auto flex items-center justify-center gap-3 bg-white text-[#1A2B47] hover:bg-cyan-400 px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:scale-95"
+            className="w-full md:w-auto flex items-center justify-center gap-3 bg-orange-500 text-black hover:bg-orange-400 px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-[0_0_15px_rgba(249,115,22,0.3)] active:scale-95"
           >
             <Plus size={18} strokeWidth={3} /> Tambah Berita
           </button>
         </div>
 
+        {/* --- SEARCH & FILTER --- */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="relative flex-grow">
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
             <input 
               type="text" 
               placeholder="Cari konten berita..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#243757] border border-white/10 rounded-2xl py-4 pl-14 pr-6 outline-none focus:border-cyan-400 focus:bg-[#2a3f63] transition-all text-sm placeholder:text-slate-500 shadow-inner"
+              className="w-full bg-[#111111] border border-white/10 rounded-2xl py-4 pl-14 pr-6 outline-none focus:border-orange-500 focus:bg-[#1a1a1a] transition-all text-sm text-white placeholder:text-gray-600 shadow-inner"
             />
           </div>
           <div className="relative min-w-[200px]">
-            <Filter className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+            <Filter className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
             <select 
               value={filterCat}
               onChange={(e) => setFilterCat(e.target.value)}
-              className="w-full bg-[#243757] border border-white/10 rounded-2xl py-4 pl-14 pr-6 outline-none focus:border-cyan-400 cursor-pointer text-sm font-bold appearance-none shadow-inner"
+              className="w-full bg-[#111111] border border-white/10 rounded-2xl py-4 pl-14 pr-6 outline-none focus:border-orange-500 focus:bg-[#1a1a1a] text-white cursor-pointer text-sm font-bold appearance-none shadow-inner"
             >
-              {CATEGORIES.map(c => <option key={c} value={c} className="bg-[#1A2B47]">{c}</option>)}
+              {CATEGORIES.map(c => <option key={c} value={c} className="bg-[#111111]">{c}</option>)}
             </select>
           </div>
         </div>
 
-        <div className="bg-[#213352] border border-white/10 rounded-[40px] overflow-hidden shadow-2xl backdrop-blur-sm">
+        {/* --- TABLE DATA --- */}
+        <div className="bg-[#111111] border border-white/10 rounded-[40px] overflow-hidden shadow-2xl backdrop-blur-sm">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="bg-white/5 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
+                <tr className="bg-white/5 text-gray-500 text-[10px] font-black uppercase tracking-[0.3em]">
                   <th className="p-8">Informasi Konten</th>
                   <th className="p-8">Kategori</th>
                   <th className="p-8">Terbit</th>
@@ -115,7 +118,7 @@ export default function NewsCMS() {
                     <motion.tr 
                       key={item.id}
                       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                      className="hover:bg-white/[0.03] transition-colors group"
+                      className="hover:bg-[#1a1a1a] transition-colors group"
                     >
                       <td className="p-8">
                         <div className="flex items-center gap-5">
@@ -123,31 +126,31 @@ export default function NewsCMS() {
                             <Image src={item.img} alt="thumb" fill className="object-cover" />
                           </div>
                           <div className="max-w-[340px]">
-                            <h4 className="font-bold text-white text-lg leading-tight">{item.title}</h4>
-                            <p className="text-xs text-slate-400 mt-1.5 line-clamp-1">{item.desc}</p>
+                            <h4 className="font-bold text-white text-lg leading-tight group-hover:text-orange-500 transition-colors">{item.title}</h4>
+                            <p className="text-xs text-gray-400 mt-1.5 line-clamp-1">{item.desc}</p>
                           </div>
                         </div>
                       </td>
                       <td className="p-8">
-                        <span className="px-4 py-1.5 rounded-xl bg-cyan-400/10 text-cyan-400 text-[9px] font-black uppercase tracking-widest border border-cyan-400/20">
+                        <span className="px-4 py-1.5 rounded-xl bg-orange-500/10 text-orange-500 text-[9px] font-black uppercase tracking-widest border border-orange-500/20">
                           {item.cat}
                         </span>
                       </td>
-                      <td className="p-8 text-sm text-slate-400 font-semibold">{item.time}</td>
+                      <td className="p-8 text-sm text-gray-400 font-semibold">{item.time}</td>
                       
-                      {/* --- MANAJEMEN AKSI: SELALU TERLIHAT --- */}
+                      {/* --- MANAJEMEN AKSI --- */}
                       <td className="p-8 text-right">
                         <div className="flex justify-end gap-3 items-center">
                           <button 
                             onClick={() => { setEditingItem(item); setFormData({title:item.title, desc:item.desc, cat:item.cat, img:item.img}); setIsModalOpen(true); }} 
-                            className="p-3 rounded-xl bg-white/5 text-yellow-400 hover:bg-yellow-400 hover:text-[#1A2B47] transition-all border border-white/5 shadow-lg active:scale-90"
+                            className="p-3 rounded-xl bg-white/5 text-orange-400 hover:bg-orange-500 hover:text-black transition-all border border-white/5 shadow-lg active:scale-90"
                             title="Edit Artikel"
                           >
                             <Edit3 size={18} />
                           </button>
                           <button 
                             onClick={() => setNewsList(newsList.filter(i => i.id !== item.id))} 
-                            className="p-3 rounded-xl bg-white/5 text-red-400 hover:bg-red-400 hover:text-white transition-all border border-white/5 shadow-lg active:scale-90"
+                            className="p-3 rounded-xl bg-white/5 text-red-400 hover:bg-red-500 hover:text-white transition-all border border-white/5 shadow-lg active:scale-90"
                             title="Hapus Artikel"
                           >
                             <Trash2 size={18} />
@@ -161,34 +164,35 @@ export default function NewsCMS() {
             </table>
           </div>
           
-          <div className="p-8 border-t border-white/5 flex justify-between items-center bg-black/10">
-            <span className="text-[10px] font-black uppercase text-slate-500 tracking-widest">Entry: {filteredData.length} Items</span>
+          <div className="p-8 border-t border-white/5 flex justify-between items-center bg-black/40">
+            <span className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Entry: {filteredData.length} Items</span>
             <div className="flex gap-3">
-              <button className="p-3 rounded-xl bg-white/5 text-slate-600 cursor-not-allowed border border-white/5"><ChevronLeft size={20}/></button>
-              <button className="p-3 rounded-xl bg-white/5 text-white hover:bg-cyan-400 hover:text-[#1A2B47] transition-all border border-white/5"><ChevronRight size={20}/></button>
+              <button className="p-3 rounded-xl bg-white/5 text-gray-600 cursor-not-allowed border border-white/5"><ChevronLeft size={20}/></button>
+              <button className="p-3 rounded-xl bg-white/5 text-white hover:bg-orange-500 hover:text-black transition-all border border-white/5"><ChevronRight size={20}/></button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Modal Tetap Sama Sesuai Tampilan Sebelumnya */}
+      {/* --- MODAL FORM --- */}
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsModalOpen(false)} className="absolute inset-0 bg-[#0a1424]/90 backdrop-blur-md" />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsModalOpen(false)} className="absolute inset-0 bg-black/80 backdrop-blur-md" />
             <motion.div initial={{ scale: 0.9, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="relative w-full max-w-2xl bg-[#213352] border border-white/10 rounded-[48px] p-10 md:p-14 shadow-3xl overflow-hidden"
+              className="relative w-full max-w-2xl bg-[#111111] border border-white/10 rounded-[48px] p-10 md:p-14 shadow-2xl overflow-hidden"
             >
               <div className="flex justify-between items-center mb-10">
                 <h2 className="text-3xl font-black text-white tracking-tight">{editingItem ? "Edit Artikel" : "Buat Baru"}</h2>
-                <button onClick={() => setIsModalOpen(false)} className="p-3 rounded-full hover:bg-white/5 text-slate-400 hover:text-white transition-all"><X size={24} /></button>
+                <button onClick={() => setIsModalOpen(false)} className="p-3 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-orange-500 transition-all"><X size={24} /></button>
               </div>
               
               <form onSubmit={handleSubmit} className="space-y-8">
-                <div onClick={() => fileInputRef.current?.click()} className="relative h-48 w-full rounded-3xl border-2 border-dashed border-white/10 bg-black/20 flex flex-col items-center justify-center cursor-pointer hover:border-cyan-400/50 transition-all group overflow-hidden shadow-inner">
-                  <Image src={formData.img} alt="preview" fill className="object-cover opacity-20 transition-opacity" />
-                  <Upload size={32} className="mb-3 text-cyan-400" />
-                  <span className="text-[10px] font-black uppercase text-white/40 tracking-[0.3em]">Update Cover Image</span>
+                {/* Upload Cover */}
+                <div onClick={() => fileInputRef.current?.click()} className="relative h-48 w-full rounded-3xl border-2 border-dashed border-white/10 bg-black/40 flex flex-col items-center justify-center cursor-pointer hover:border-orange-500/50 hover:bg-orange-500/5 transition-all group overflow-hidden shadow-inner">
+                  <Image src={formData.img} alt="preview" fill className="object-cover opacity-30 transition-opacity" />
+                  <Upload size={32} className="mb-3 text-orange-500 relative z-10" />
+                  <span className="text-[10px] font-black uppercase text-gray-400 group-hover:text-orange-500 tracking-[0.3em] relative z-10 transition-colors">Update Cover Image</span>
                   <input type="file" ref={fileInputRef} onChange={(e) => {
                     const file = e.target.files?.[0];
                     if (file) {
@@ -201,23 +205,23 @@ export default function NewsCMS() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase text-cyan-400/60 ml-2 tracking-widest">Judul Artikel</label>
-                    <input required value={formData.title} onChange={(e) => setFormData({...formData, title: e.target.value})} className="w-full bg-[#1A2B47] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-cyan-400 transition-all text-sm font-bold shadow-inner" />
+                    <label className="text-[10px] font-black uppercase text-orange-500/80 ml-2 tracking-widest">Judul Artikel</label>
+                    <input required value={formData.title} onChange={(e) => setFormData({...formData, title: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-orange-500 focus:bg-white/10 transition-all text-sm font-bold shadow-inner text-white placeholder-gray-500" placeholder="Masukkan judul..." />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase text-cyan-400/60 ml-2 tracking-widest">Kategori</label>
-                    <select value={formData.cat} onChange={(e) => setFormData({...formData, cat: e.target.value})} className="w-full bg-[#1A2B47] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-cyan-400 appearance-none text-sm font-bold shadow-inner">
-                      {CATEGORIES.filter(c => c !== "Semua").map(c => <option key={c} value={c}>{c}</option>)}
+                    <label className="text-[10px] font-black uppercase text-orange-500/80 ml-2 tracking-widest">Kategori</label>
+                    <select value={formData.cat} onChange={(e) => setFormData({...formData, cat: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-orange-500 focus:bg-white/10 appearance-none text-sm font-bold shadow-inner text-white cursor-pointer">
+                      {CATEGORIES.filter(c => c !== "Semua").map(c => <option key={c} value={c} className="bg-[#111111]">{c}</option>)}
                     </select>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-[10px] font-black uppercase text-cyan-400/60 ml-2 tracking-widest">Konten Ringkasan</label>
-                  <textarea required rows={4} value={formData.desc} onChange={(e) => setFormData({...formData, desc: e.target.value})} className="w-full bg-[#1A2B47] border border-white/10 rounded-[32px] px-6 py-5 outline-none focus:border-cyan-400 resize-none text-sm font-medium shadow-inner" />
+                  <label className="text-[10px] font-black uppercase text-orange-500/80 ml-2 tracking-widest">Konten Ringkasan</label>
+                  <textarea required rows={4} value={formData.desc} onChange={(e) => setFormData({...formData, desc: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-[32px] px-6 py-5 outline-none focus:border-orange-500 focus:bg-white/10 resize-none text-sm font-medium shadow-inner text-white placeholder-gray-500" placeholder="Tulis ringkasan berita di sini..." />
                 </div>
 
-                <button type="submit" className="w-full bg-cyan-400 py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-[11px] text-[#1A2B47] hover:bg-white transition-all shadow-xl shadow-cyan-400/10 active:scale-95">
+                <button type="submit" className="w-full bg-orange-500 py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-[11px] text-black hover:bg-orange-400 transition-all shadow-[0_0_15px_rgba(249,115,22,0.3)] active:scale-95">
                   {editingItem ? "Update Berita" : "Publish Berita"}
                 </button>
               </form>

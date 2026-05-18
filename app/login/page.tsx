@@ -16,14 +16,16 @@ const GoogleIcon = () => (
 
 export default function LoginPage() {
   return (
-    <main className="relative flex min-h-screen w-full flex-col items-center justify-center bg-[#030303] text-slate-200 selection:bg-blue-500/30 overflow-hidden font-sans">
+    <main className="relative flex min-h-screen w-full flex-col items-center justify-center bg-black text-gray-200 selection:bg-orange-500/30 overflow-hidden font-sans">
       
       {/* --- BACKGROUND LAYER --- */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1),rgba(3,3,3,1))]" />
-        {/* Animated Mesh Gradient */}
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-600/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        {/* Diubah menjadi gradasi pure black / dark gray */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,24,27,1),rgba(0,0,0,1))]" />
+        
+        {/* Animated Mesh Gradient dengan nuansa Orange/Amber */}
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-orange-600/20 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-amber-600/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
         
         {/* Grid Pattern Overlay */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
@@ -37,9 +39,9 @@ export default function LoginPage() {
       >
         <Link 
           href="/" 
-          className="group flex items-center gap-2.5 text-xs font-medium tracking-wide text-slate-400 transition-all hover:text-white"
+          className="group flex items-center gap-2.5 text-xs font-medium tracking-wide text-gray-400 transition-all hover:text-orange-400"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/5 bg-white/5 transition-colors group-hover:bg-white/10 group-hover:border-white/20">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/5 bg-white/5 transition-colors group-hover:bg-orange-500/10 group-hover:border-orange-500/30 group-hover:text-orange-400">
             <ChevronLeft size={16} className="transition-transform group-hover:-translate-x-1" />
           </div>
           Back to home
@@ -56,33 +58,33 @@ export default function LoginPage() {
           {/* Header */}
           <div className="mb-10 text-center">
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 border border-white/10 mb-6 backdrop-blur-sm">
-               <img src="nsclogo.svg" alt="Logo" className="h-6 w-6 brightness-0 invert" />
+               <img src="nsclogo.svg" alt="Logo" className="h-10 w-10 brightness-0 invert" />
             </div>
-            <h1 className="text-3xl font-semibold tracking-tight text-white mb-2">
+            <h1 className="text-3xl font-bold tracking-tight text-white mb-2">
               Welcome back
             </h1>
-            <p className="text-slate-400 text-sm">
+            <p className="text-gray-400 text-sm">
               Enter your credentials to access your portal
             </p>
           </div>
 
           {/* Login Card */}
           <div className="relative">
-            {/* Soft Glow Behind Card */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-[24px] blur-xl opacity-50" />
+            {/* Soft Glow Behind Card dengan aksen Orange */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-[24px] blur-xl opacity-50" />
             
-            <div className="relative rounded-[24px] border border-white/10 bg-black/40 p-8 backdrop-blur-2xl">
+            <div className="relative rounded-[24px] border border-white/10 bg-black/60 p-8 backdrop-blur-2xl">
               <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
                 
                 {/* Email Field */}
                 <div className="space-y-2">
-                  <label className="text-[13px] font-medium text-slate-300 ml-1">Email address</label>
+                  <label className="text-[13px] font-bold text-gray-300 ml-1">Email address</label>
                   <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                     <input 
                       type="email" 
                       placeholder="name@company.com"
-                      className="w-full rounded-xl border border-white/5 bg-white/[0.05] py-3.5 pl-12 pr-4 text-sm transition-all focus:border-blue-500/50 focus:bg-white/[0.08] focus:ring-0 outline-none placeholder:text-slate-600"
+                      className="w-full rounded-xl border border-white/5 bg-white/[0.05] py-3.5 pl-12 pr-4 text-sm transition-all focus:border-orange-500/50 focus:bg-white/[0.08] focus:ring-0 outline-none placeholder:text-gray-600"
                     />
                   </div>
                 </div>
@@ -90,24 +92,24 @@ export default function LoginPage() {
                 {/* Password Field */}
                 <div className="space-y-2">
                   <div className="flex justify-between items-center px-1">
-                    <label className="text-[13px] font-medium text-slate-300">Password</label>
-                    <Link href="#" className="text-[12px] font-medium text-blue-400 hover:text-blue-300 transition-colors">Forgot?</Link>
+                    <label className="text-[13px] font-bold text-gray-300">Password</label>
+                    <Link href="#" className="text-[12px] font-bold text-orange-500 hover:text-orange-400 transition-colors">Forgot?</Link>
                   </div>
                   <div className="relative">
-                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
+                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                     <input 
                       type="password" 
                       placeholder="••••••••"
-                      className="w-full rounded-xl border border-white/5 bg-white/[0.05] py-3.5 pl-12 pr-12 text-sm transition-all focus:border-blue-500/50 focus:bg-white/[0.08] focus:ring-0 outline-none placeholder:text-slate-600"
+                      className="w-full rounded-xl border border-white/5 bg-white/[0.05] py-3.5 pl-12 pr-12 text-sm transition-all focus:border-orange-500/50 focus:bg-white/[0.08] focus:ring-0 outline-none placeholder:text-gray-600"
                     />
-                    <button type="button" className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300">
+                    <button type="button" className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300">
                         <EyeOff size={16} />
                     </button>
                   </div>
                 </div>
 
-                {/* Submit Button */}
-                <button type="submit" className="relative mt-2 w-full group overflow-hidden rounded-xl bg-white px-4 py-3.5 text-sm font-semibold text-black transition-all hover:bg-slate-100 active:scale-[0.98]">
+                {/* Submit Button - Bold Orange */}
+                <button type="submit" className="relative mt-2 w-full group overflow-hidden rounded-xl bg-orange-500 px-4 py-3.5 text-sm font-bold text-black transition-all hover:bg-orange-400 active:scale-[0.98] shadow-[0_0_15px_rgba(249,115,22,0.3)]">
                   <div className="flex items-center justify-center gap-2">
                     Sign in to Portal
                     <LogIn size={16} className="transition-transform group-hover:translate-x-0.5" />
@@ -116,20 +118,20 @@ export default function LoginPage() {
 
                 <div className="relative flex items-center py-2">
                   <div className="flex-grow border-t border-white/5"></div>
-                  <span className="mx-4 text-[11px] font-medium uppercase tracking-widest text-slate-500">Or continue with</span>
+                  <span className="mx-4 text-[11px] font-bold uppercase tracking-widest text-gray-500">Or continue with</span>
                   <div className="flex-grow border-t border-white/5"></div>
                 </div>
 
                 {/* Google Button */}
-                <button type="button" className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] py-3.5 text-sm font-medium text-white transition-all hover:bg-white/[0.08] hover:border-white/20">
+                <button type="button" className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] py-3.5 text-sm font-bold text-white transition-all hover:bg-white/[0.08] hover:border-white/20">
                   <GoogleIcon /> Google
                 </button>
               </form>
 
               <div className="mt-8 text-center">
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-gray-400">
                   Don't have an account? {" "}
-                  <Link href="/register" className="text-white hover:underline underline-offset-4 font-medium transition-colors">
+                  <Link href="/register" className="text-orange-500 hover:text-orange-400 hover:underline underline-offset-4 font-bold transition-colors">
                     Create account
                   </Link>
                 </p>
@@ -145,14 +147,14 @@ export default function LoginPage() {
             className="mt-12 flex flex-col items-center gap-6"
           >
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md">
-              <ShieldCheck size={14} className="text-emerald-500" />
-              <span className="text-[11px] font-medium text-slate-400 tracking-tight">End-to-end encrypted session</span>
+              <ShieldCheck size={14} className="text-orange-500" />
+              <span className="text-[11px] font-medium text-gray-400 tracking-tight">End-to-end encrypted session</span>
             </div>
             
-            <div className="flex justify-center gap-6 text-[12px] font-medium text-slate-500">
-              <Link href="#" className="hover:text-slate-300 transition-colors">Privacy</Link>
-              <Link href="#" className="hover:text-slate-300 transition-colors">Terms</Link>
-              <Link href="#" className="hover:text-slate-300 transition-colors">Help</Link>
+            <div className="flex justify-center gap-6 text-[12px] font-medium text-gray-500">
+              <Link href="#" className="hover:text-orange-400 transition-colors">Privacy</Link>
+              <Link href="#" className="hover:text-orange-400 transition-colors">Terms</Link>
+              <Link href="#" className="hover:text-orange-400 transition-colors">Help</Link>
             </div>
           </motion.div>
         </motion.div>

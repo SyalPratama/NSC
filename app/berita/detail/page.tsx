@@ -38,12 +38,12 @@ const relatedNews = [
 
 export default function NewsDetail() {
   return (
-    <main className="relative min-h-screen bg-[#1A2B47] text-white font-sans overflow-hidden">
+    <main className="relative min-h-screen bg-black text-gray-200 font-sans overflow-hidden selection:bg-orange-500/30">
       
-      {/* Background Glows (Konsisten dengan halaman list) */}
+      {/* Background Glows (Aksen Orange/Amber) */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] bg-indigo-500/10 blur-[100px] rounded-full" />
+        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-orange-600/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] bg-amber-500/10 blur-[100px] rounded-full" />
       </div>
 
       <Navbar />
@@ -51,7 +51,7 @@ export default function NewsDetail() {
       <div className="relative z-10 container mx-auto px-6 pt-32 pb-20 max-w-6xl">
         
         {/* Tombol Kembali */}
-        <Link href="/berita" className="inline-flex items-center gap-2 text-blue-400 hover:text-white transition-colors mb-8 group">
+        <Link href="/berita" className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors mb-8 group">
           <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
           <span className="text-sm font-bold uppercase tracking-widest">Kembali ke Berita</span>
         </Link>
@@ -67,26 +67,26 @@ export default function NewsDetail() {
             >
               {/* Header Artikel */}
               <div className="space-y-4">
-                <span className="bg-blue-500 px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest shadow-lg shadow-blue-500/20">
+                <span className="bg-orange-500 px-3 py-1 rounded-md text-[10px] font-black text-black uppercase tracking-widest shadow-[0_0_15px_rgba(249,115,22,0.3)]">
                   {article.category}
                 </span>
-                <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tighter">
+                <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tighter text-white">
                   {article.title}
                 </h1>
                 
                 {/* Meta Info */}
-                <div className="flex flex-wrap items-center gap-6 py-4 border-y border-white/5 text-white/40">
+                <div className="flex flex-wrap items-center gap-6 py-4 border-y border-white/10 text-gray-500">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400">
+                    <div className="w-8 h-8 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500">
                       <User size={14} />
                     </div>
-                    <span className="text-xs font-bold text-white/70">{article.author}</span>
+                    <span className="text-xs font-bold text-gray-300">{article.author}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs">
+                  <div className="flex items-center gap-2 text-xs font-medium">
                     <Calendar size={14} />
                     <span>{article.date}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs">
+                  <div className="flex items-center gap-2 text-xs font-medium">
                     <Clock size={14} />
                     <span>{article.readTime} Baca</span>
                   </div>
@@ -104,19 +104,19 @@ export default function NewsDetail() {
               </div>
 
               {/* Konten Teks */}
-              {/* --- KONTEN ARTIKEL DENGAN WRAPPER CARD --- */}
+              {/* --- KONTEN ARTIKEL DENGAN WRAPPER CARD GELAP --- */}
                 <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="relative p-8 md:p-12 rounded-[40px] bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-2xl"
+                className="relative p-8 md:p-12 rounded-[40px] bg-[#111111] border border-white/5 backdrop-blur-xl shadow-2xl"
                 >
                 {/* Aksen dekoratif di pojok kartu agar tidak flat */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full -mr-10 -mt-10" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 blur-3xl rounded-full -mr-10 -mt-10" />
 
                 <div className="prose prose-invert max-w-none relative z-10">
                     {article.content.map((p, index) => (
                     <div key={index}>
-                        <p className="text-lg leading-relaxed text-white/80 mb-8 font-medium">
+                        <p className="text-lg leading-relaxed text-gray-300 mb-8 font-medium">
                         {p}
                         </p>
                     </div>
@@ -125,12 +125,12 @@ export default function NewsDetail() {
                 </motion.div>
 
               {/* Action Buttons (Share/Save) */}
-              <div className="flex items-center gap-4 pt-8 border-t border-white/5">
-                <button className="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl transition-all border border-white/5">
+              <div className="flex items-center gap-4 pt-8 border-t border-white/10">
+                <button className="flex items-center gap-2 text-gray-400 bg-white/5 hover:bg-orange-500/10 hover:text-orange-500 hover:border-orange-500/30 px-4 py-2 rounded-xl transition-all border border-white/10">
                   <Share2 size={18} />
                   <span className="text-xs font-bold uppercase tracking-widest">Share</span>
                 </button>
-                <button className="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl transition-all border border-white/5">
+                <button className="flex items-center gap-2 text-gray-400 bg-white/5 hover:bg-orange-500/10 hover:text-orange-500 hover:border-orange-500/30 px-4 py-2 rounded-xl transition-all border border-white/10">
                   <Bookmark size={18} />
                   <span className="text-xs font-bold uppercase tracking-widest">Save</span>
                 </button>
@@ -141,16 +141,16 @@ export default function NewsDetail() {
           {/* --- KOLOM KANAN: SIDEBAR --- */}
           <div className="space-y-10">
             
-            {/* Widget Populer */}
-            <section className="bg-white/[0.03] p-6 rounded-[32px] border border-white/[0.05] backdrop-blur-md">
-              <h3 className="text-lg font-bold border-b border-white/10 pb-4 mb-6">Berita Terkait</h3>
+            {/* Widget Berita Terkait */}
+            <section className="bg-[#111111] p-6 rounded-[32px] border border-white/5 shadow-2xl backdrop-blur-md">
+              <h3 className="text-lg font-bold text-white border-b border-white/10 pb-4 mb-6">Berita Terkait</h3>
               <div className="space-y-6">
                 {relatedNews.map((news) => (
                   <div key={news.id} className="group cursor-pointer">
-                    <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest block mb-1">
+                    <span className="text-[10px] font-black text-orange-500 uppercase tracking-widest block mb-1">
                       {news.cat}
                     </span>
-                    <h4 className="text-sm font-bold leading-snug group-hover:text-blue-300 transition-colors">
+                    <h4 className="text-sm font-bold text-gray-300 leading-snug group-hover:text-orange-400 transition-colors">
                       {news.title}
                     </h4>
                   </div>
@@ -158,17 +158,17 @@ export default function NewsDetail() {
               </div>
             </section>
 
-            {/* Newsletter atau Promo (Minimalis) */}
-            <section className="relative overflow-hidden p-8 rounded-[32px] bg-gradient-to-br from-blue-600 to-indigo-900 border border-white/10 group cursor-pointer">
+            {/* Newsletter atau Promo (Sekarang bernuansa dark & orange glow) */}
+            <section className="relative overflow-hidden p-8 rounded-[32px] bg-[#0a0a0a] border border-orange-500/30 shadow-[0_0_20px_rgba(249,115,22,0.1)] group cursor-pointer">
               <div className="relative z-10 space-y-4">
-                <h3 className="text-xl font-bold leading-tight">Butuh Internet Cepat?</h3>
-                <p className="text-sm text-white/70">Dapatkan layanan Starlink Enterprise dengan instalasi prioritas sekarang.</p>
-                <button className="w-full bg-white text-blue-900 font-black text-[10px] uppercase py-3 rounded-xl hover:bg-blue-50 transition-colors tracking-[0.2em]">
+                <h3 className="text-xl font-bold leading-tight text-white">Butuh Internet Cepat?</h3>
+                <p className="text-sm text-gray-400 font-medium">Dapatkan layanan Starlink Enterprise dengan instalasi prioritas sekarang.</p>
+                <button className="w-full bg-orange-500 text-black font-black text-[10px] uppercase py-3 rounded-xl hover:bg-orange-400 transition-all tracking-[0.2em] shadow-[0_0_15px_rgba(249,115,22,0.3)] active:scale-95 mt-2">
                   Hubungi Kami
                 </button>
               </div>
               {/* Dekorasi BG */}
-              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-white/10 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700" />
+              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-orange-500/20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700" />
             </section>
 
           </div>
