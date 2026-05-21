@@ -141,6 +141,7 @@ export default function Navbar() {
           {/* Main Navigation Links */}
           {[
             { name: "Produk", href: "/product" },
+            { name: "Our Gallery", href: "/gallery" },
             { name: "Berita", href: "/berita" },
             { name: "Portal Customer", href: "/customer" },
             { name: "Portal Reseller", href: "/reseller" },
